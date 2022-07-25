@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h1>question no 2</h1>
+</body>
+</html>
+<script>
+
+       let a1=new Array(1,2,3,4);  // this is orignal array constructer which return array object.
+
+      // console.log("a1:",a1);
+
+         function myArray(){                         // this is custome array cosntructer my aim is to make this so that it works same as orignal array constructer works.
+
+            Object.defineProperty(this,"length",{
+            writable:true,
+            enumarable:false
+        })
+
+             for (var i=0;i<arguments.length;i++){
+                 this[i]=arguments[i];
+
+                 this.length=arguments.length;
+             }
+
+         }
+
+         let a2=new myArray("raju","ram","shyam","ram");
+         console.log("a2:",a2);
+
+         
+
+        
+         
+
+
+    
+
+       
+</script>

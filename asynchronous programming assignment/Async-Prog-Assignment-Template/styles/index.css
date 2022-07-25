@@ -1,0 +1,39 @@
+#navbar>nav>ul{
+    display:flex;
+    justify-content: flex-end;
+    list-style: none;
+    background-color: black;
+    height:60px;
+    align-items: center;
+    
+}
+#navbar>nav>ul>li{
+    color:whitesmoke;
+    margin-right: 20px;
+}
+#navbar>nav>ul>a{
+    color:whitesmoke;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+#slideshowimage{
+    margin-top: 30px;
+}
+#image{
+    height: 150px;
+    width:50%;
+    margin-left: 350px;
+}
+#movies{
+    display:grid;
+    grid-template-columns: repeat(3,25%);
+    margin-top: 50px;
+    
+}
+#movies>div{
+    margin-left: 300px;
+}
+#sort-buttons{
+    margin-left: 240px;
+}

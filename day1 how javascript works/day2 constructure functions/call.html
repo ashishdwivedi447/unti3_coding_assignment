@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const Amar={
+        occupation: "singer",
+        city:"Goa",
+        fabloussongs(x){
+            console.log(`${x} excellent ${this.occupation}`);
+        }
+    }
+
+
+    const Akbar={
+        occupation:"chef",
+        city:"Mumbai",
+
+        fablouschef(x){
+            console.log(`${x} excellent ${this.occupation}`)
+        }
+    }
+
+
+    const Anthony={
+        occupation:"Magician",
+        city:"kashmir",
+        fablousmagician(x){
+            console.log(`${x} excellent ${this.occupation}`);  //this refers to Anthony
+        }
+ }
+
+       Akbar.fablouschef.call(Anthony,"Akbar");    // when  call applied then this refers to Anthony's occupation.
+       Anthony.fablousmagician.call(Amar,"Anthony");
+</script>

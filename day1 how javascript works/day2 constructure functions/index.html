@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="student name" id="name">
+        <input type="number" placeholder="Mobile No" id="mobile">
+        <input type="text" placeholder="city" id="city">
+        <input type="submit">
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", studentinfo);
+    var data_array=JSON.parse(localStorage.getItem("studentsdatabase"))||[];
+    function studentinfo(event){
+        event.preventDefault();
+        var stuname=document.querySelector("#name").value;
+        var mobile=document.querySelector("#mobile").value;
+        var city=document.querySelector("#city").value;
+
+        function studentCF(N,M,C){
+             this.studentName=N;
+             this.Mobile=M;
+             this.city=C;
+         }
+         let details=new studentCF(stuname,mobile,city);
+         data_array.push(details);
+         localStorage.setItem("studentsdatabase",JSON.stringify(data_array));
+
+         window.location.href="studentdetails.html";
+         
+         }
+
+</script>

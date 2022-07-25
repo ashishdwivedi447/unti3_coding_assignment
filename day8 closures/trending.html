@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    h4{
+        color:brown;
+        text-decoration:underline;
+         margin-left: 600px;
+         margin-top: 40px;
+    }
+    #append{
+
+        display:grid;
+        grid-template-columns: repeat(4,1fr);;
+ }
+ img{
+     height:350px;
+     width:100%;
+     
+
+ }
+ #append>div{
+     border:1px solid rebeccapurple;
+     margin-left: 20px;
+     margin-bottom: 20px;
+     
+ }
+ #append>div>p{
+     margin-left: 80px
+ }
+ body{
+     background-color: aqua;
+ }
+
+ 
+</style>
+<body>
+    <div id="cont">
+       <h4>Trending movies</h4>
+       <hr>
+       <div id="append"></div>
+    </div>
+</body>
+</html>
+<script>
+
+    // let API_key='api_key=0653cea54e34f7b7eea2839c982e34c7';
+    // let bas_url='https://api.themoviedb.org/3/';
+
+    // let API_URL=bas_url+'/discover/movie?sort_by=popularity.desc&'+API_key;
+    let url="https://api.themoviedb.org/3/movie/popular?api_key=0653cea54e34f7b7eea2839c982e34c7"
+         async function get_movies(url){
+
+             try{
+                let res=await fetch(url);
+             let data=await res.json();
+               append_movie(data.results);
+
+             }
+             catch(err){
+                 console.log("err:",err);
+             }
+             
+
+         }
+
+         get_movies(url);
+
+         function append_movie(data){
+
+             data.forEach(function(elem){
+                 let div=document.createElement("div");
+
+                 let img=document.createElement("img");
+
+                 img.src=`https://image.tmdb.org/t/p/w500/${elem.poster_path}`;
+
+                 let title=document.createElement("p");
+
+                 title.innerText=elem.title;
+
+                 div.append(img,title);
+
+                 document.querySelector("#append").append(div);
+             })
+         }
+</script>

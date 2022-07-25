@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>  
+<style>
+    #object{
+        background-color: aqua;
+        width:600px;
+        justify-content: center;
+        display: none;
+    }
+    #array{
+        background-color: aqua;
+        width:600px;
+        justify-content: center;
+        display: none;
+    }
+    #functions{
+        background-color: aqua;
+        width:600px;
+        justify-content: center;
+        display: none;
+    }
+    #strings{
+        background-color: aqua;
+        width:600px;
+        justify-content: center;
+        display: none;
+    }
+    #numbers{
+        background-color: aqua;
+        width:600px;
+        justify-content: center;
+        display: none;
+    }
+    #null{
+        background-color: aqua;
+        width:600px;
+        justify-content: center;
+        display: none;
+        
+    }
+    #undefined{
+        background-color: aqua;
+        width:600px;
+        justify-content: center;
+        display: none;
+    }
+</style>
+<body>
+    <div id="cont">
+      <button onclick="infoobject()">object</button>
+      <button onclick="infoarrays()">Arrays</button>
+      <button onclick="infofunction()">functions</button>
+      <button onclick="infostrings()">Strings</button>
+      <button onclick="infonumbers()">Numbers</button>
+      <button onclick="infonull()">null</button>
+      <button onclick="infoundefined()">undefined</button>
+      </div>
+      <div id="object">
+          <ul>
+              <li>Object</li>
+              <li>object is used to store the propertie of any variable. it is have key-value pairs</li>
+              <li>it is mutable</li>
+          </ul>
+      </div>
+
+      <div id="array">
+          <ul>
+              <li>Arrays</li>
+              <li>An array is  an objetc that can tore multiple values</li>
+              <li>it stored ordered list of values whihc is specified by it's index</li>
+              <li>is it mutable</li>
+          </ul>
+      </div>
+
+      <div id="functions">
+          <li>functions</li>
+          <li>A functions is a thing in javascript which perform  particulat task .it takes input and return output when funcions is invoked.</li>
+          <li>function is mutable</li>
+      </div>
+      
+      <div id="strings">
+          <ul>
+            <li>strings</li>
+            <li>a strinsg is a sequence of char which i written within the quotes</li>
+            <li>it is mutable</li>
+          </ul>
+         
+      </div>
+
+      <div id="numbers">
+          <ul>
+            <li>Numbers</li>
+            <li>Numbers is of two types one is decimal and another is non decimal</li>
+            <li>it represent  the actual value of variable</li>
+            <li>javascript numbers are alway 64 bit floating points</li>
+            <li>it is is immutable</li>
+          </ul>
+      </div>
+
+      <div id="null">
+          <ul>
+              <li>null</li>
+              <li>null is an object in javascript</li>
+              <li>when any variable assigned a null value then that means is having empty values and later whenever required that variable will be assigned with any value.</li>
+          </ul>
+      </div>
+
+      <div id="undefined">
+          <ul>
+              <li>undefined</li>
+              <li>when any variable is created but initially no value is assigned so later when we access that variable then it will be undefined. </li>
+          </ul>
+      </div>
+        
+</body>
+</html>
+<script>
+     function infoobject(){
+         document.querySelector("#object").style.display="block";
+     }
+     function infoarrays(){
+         document.querySelector("#array").style.display="block";
+     }
+     function infofunction(){
+         document.querySelector("#functions").style.display="block";
+     }
+     function infostrings(){
+         document.querySelector("#strings").style.display="block";
+     }
+     function infonumbers(){
+         document.querySelector("#numbers").style.display="block";
+     }
+     function infonull(){
+         document.querySelector("#null").style.display="block";
+     }
+      function infoundefined(){
+         document.querySelector("#undefined").style.display="block";
+     }
+</script>

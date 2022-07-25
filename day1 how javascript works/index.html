@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="cont">
+        <button class="btn">throw dice</button>
+        
+    </div>
+</body>
+</html>
+<script>
+    // var throwdice=document.createElement("button");
+    document.querySelector(".btn").addEventListener("click",getrandomNum);
+
+    function getrandomNum(){
+        
+        var p=Math.ceil(Math.random()*6);   //math.random() is used to get random No between 0 to 1.
+        var div=document.createElement("div");
+        div.append(p);
+        if(p===6){
+            div.style.color="green";
+        }else if(p===1){
+            div.style.color="yellow";
+        }else{
+            div.style.color="red";
+        }
+        document.querySelector("#cont").append(div);
+        
+    }
+    
+    
+</script>

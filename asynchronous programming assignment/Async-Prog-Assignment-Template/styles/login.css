@@ -1,0 +1,41 @@
+#navbar>nav>ul{
+    display:flex;
+    justify-content: flex-end;
+    list-style: none;
+    background-color: black;
+    height:60px;
+    align-items: center;
+    
+}
+#navbar>nav>ul>li{
+    color:whitesmoke;
+    margin-right: 20px;
+}
+#navbar>nav>ul>a{
+    color:whitesmoke;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+#login-form-div{
+    
+    width:300px;
+    height:180px;
+    margin:auto;
+    margin-top: 60px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+h4{
+    margin-left: 120px;
+}
+
+input{
+    margin-left: 60px;
+}
+
+#button{
+    color:white;
+    background-color: blue;
+    margin-left: 120px;
+    border:none
+}

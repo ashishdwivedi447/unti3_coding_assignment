@@ -1,0 +1,18 @@
+#navbar>nav>ul{
+    display:flex;
+    justify-content: flex-end;
+    list-style: none;
+    background-color: black;
+    height:60px;
+    align-items: center;
+    
+}
+#navbar>nav>ul>li{
+    color:whitesmoke;
+    margin-right: 20px;
+}
+#navbar>nav>ul>a{
+    color:whitesmoke;
+    margin-right: 20px;
+    text-decoration: none;
+}

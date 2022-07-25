@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<style>
+.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net"></a><style>
+
+    #weatherandmap{
+        display:flex;
+        align-items: center;
+        
+    }
+    iframe{
+        height:250px;
+        width:500px;
+    margin-top: 100px;
+
+    margin-left: 400px;
+    }
+    body{
+        background-color: aquamarine;
+    }
+    input{
+        margin-top: 30px;
+        margin-left: 500px;
+        width:300px;
+        height:25px;
+        border-radius: 20px;
+    }
+    button{
+        height:30px;
+        width:65px;
+        border-radius: 20px;
+        background-color: black;
+        color: whitesmoke;
+    }
+    #forecast_div{
+        display:flex;
+        margin-left: 400px;
+    }
+    #forecast_div>div{
+        margin-left: 30px;
+    }
+
+    
+</style>
+
+<body>
+    <input type="text" id="city" placeholder="Enter city">
+
+    <button onclick="getWeatherData()">Search</button>
+    <div id="weatherandmap">
+        <div id="container"></div>
+
+        <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com/divi-discount/"></a></div></div>
+    </div>
+
+    <div id="forecast">
+    <div id="forecast_div"></div>
+    </div>
+
+   
+
+</body>
+</html>
+<script>
+let key="cd8445c67af7ffe1921d52918b4d616e";
+
+
+// for any city name I should get weather of this
+
+let cont=document.createElement('div')
+
+let iframe=document.querySelector("#gmap_canvas");
+  
+   async function getWeatherData(){
+       try{
+        let city=document.getElementById("city").value;
+        let res=await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`)
+         let data=await res.json();
+
+         
+        
+         showweather(data);
+           
+         
+       }
+       catch(err){
+           console.log("err:",err);
+       }
+
+   }
+
+       function showweather(d){
+    // console.log("d:",d)
+       
+       cont.innerHTML="";
+
+        let name=document.createElement("p");
+        name.innerText=` city-${d.name}`;
+
+        let min_temp=document.createElement('p');
+        min_temp.innerText=`Min Temp- ${d.main.temp_min}°C`;
+
+        let max_temp=document.createElement('p');
+        max_temp.innerText=`Max Temp- ${d.main.temp_max}°C`;
+
+        let wind=document.createElement('p');
+        wind.innerText=`wind_speed- ${d.wind.speed} KMPH`;
+
+        let clouds=document.createElement('p');
+        clouds.innerText=`clouds- ${d.clouds.all}`;
+
+        let sunrise=document.createElement('p');
+
+        let sunrise_timestamp=d.sys.sunrise;
+
+        let date=new Date(sunrise_timestamp*1000);
+
+        sunrise.innerText="sunrise-"+ date.getDate()+
+          "/"+(date.getMonth()+1)+
+          "/"+date.getFullYear()+
+          " "+date.getHours()+
+          ":"+date.getMinutes()+
+          ":"+date.getSeconds();
+
+        let sunset=document.createElement('p');
+
+        let sunset_timestamp=d.sys.sunset;
+
+        let date1=new Date(sunset_timestamp*1000);
+
+        
+        sunset.innerText="sunset-"+  date1.getDate()+
+          "/"+(date1.getMonth()+1)+
+          "/"+date1.getFullYear()+
+          " "+date1.getHours()+
+          ":"+date1.getMinutes()+
+          ":"+date1.getSeconds();;
+
+       
+
+        iframe.src=`https://maps.google.com/maps?q=${d.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+
+
+  cont.append(name,min_temp,max_temp,wind,clouds,sunrise,sunset);
+  document.querySelector("#container").append(cont);
+
+   let lat1=(d.coord.lat);
+   let lon1=(d.coord.lon);
+
+       getforcast(lat1,lon1)
+
+       }
+  
+  
+  
+      async function getforcast(lat1,lon1){
+
+         // console.log(lat1,lon1);
+          try{
+            let res1=await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat1}&lon=${lon1}&exclude=minutely,hourly&appid=${key}&units=metric `)
+         let data1=await res1.json(); 
+        // console.log("data1:",data1);
+
+         let forcast_data=data1.daily;
+
+        showforcast(forcast_data);
+          }
+          catch(error){
+              console.log("error:",error );
+          }
+      }
+
+             function showforcast(forecast_data){
+                console.log(forecast_data);
+              document.querySelector("#forecast_div").innerHTML="";
+                forecast_data.forEach(function(elem){
+                    
+                    let div=document.createElement("div");
+                    div.id=div;
+            
+                    let day_ptag=document.createElement("p");
+
+                    day_ptag.class="para";
+
+                   let date= new Date(elem.dt*1000);
+
+                    
+
+                    day_name=date.getDay();
+
+                   if(day_name==0){
+                      day_name ="Sun";
+                     day_ptag.innerText=day_name;
+                }
+                else if(day_name==1){
+                      day_name ="Mon";
+                      day_ptag.innerText=day_name;
+                }
+               else if(day_name==2){
+                      day_name ="Tue";
+                      day_ptag.innerText=day_name;
+                }
+                 else if(day_name==3){
+                      day_name ="Wed";
+                      day_ptag.innerText=day_name;
+                }
+                 else if(day_name==4){
+                      day_name ="Thu";
+                      day_ptag.innerText=day_name;
+                }
+               else if(day_name==5){
+                      day_name ="Fri";
+                      day_ptag.innerText=day_name;
+                }
+               else if(day_name==6){
+                      day_name ="Sat";
+                      day_ptag.innerText=day_name;
+                }
+
+                let icon_image=document.createElement("img");
+
+                icon_image.src=`http://openweathermap.org/img/w/${elem.weather[0].icon}.png`;
+
+                let max_tptag=document.createElement("p");
+                max_tptag.class="para";
+
+                max_tptag.innerText=`${elem.temp.max}°C`;
+
+                let min_tptag=document.createElement("p");
+                min_tptag.class="para";
+
+                min_tptag.innerText=`${elem.temp.min}°C`;
+
+                div.append(day_ptag,icon_image,max_tptag,min_tptag);
+
+                let forecast_data=document.querySelector("#forecast_div");
+                forecast_data.append(div);
+
+                document.querySelector("#forecast").append(forecast_data);
+
+                    
+                })
+             }
+</script>

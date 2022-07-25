@@ -1,0 +1,32 @@
+#navbar>nav>ul{
+    display:flex;
+    justify-content: flex-end;
+    list-style: none;
+    background-color: black;
+    height:60px;
+    align-items: center;
+    
+}
+#navbar>nav>ul>li{
+    color:whitesmoke;
+    margin-right: 20px;
+}
+#navbar>nav>ul>a{
+    color:whitesmoke;
+    margin-right: 20px;
+    text-decoration: none;
+}
+  #signup-form-div>div{
+      
+      margin:auto;
+      width:350px;
+      margin-top: 100px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      
+  }
+  input{
+      margin-left: 100px;
+  }
+  #submit{
+      margin-left: 143px;
+  }
